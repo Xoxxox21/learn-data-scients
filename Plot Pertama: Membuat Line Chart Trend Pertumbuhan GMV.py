@@ -12,4 +12,6 @@ plt.title('Monthly GMV Year 2019', loc='center', pad=20, fontsize=20, color='blu
 plt.xlabel('Order Month', fontsize=15)
 plt.ylabel('Total Amount', fontsize=15)
 plt.grid(color='darkgray', linestyle=':', linewidth=0.5)
+labels, locations = plt.yticks()
+plt.yticks(labels, (labels/1000000000).astype(int))
 plt.show()
