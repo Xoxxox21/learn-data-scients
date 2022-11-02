@@ -18,6 +18,7 @@ plt.grid(color='darkgray', linestyle=':',linewidth=0.5)
 plt.ylim(ymin=0)
 labels, locations = plt.yticks()
 plt.yticks(labels, (labels/1000000000).astype(int))  # type: ignore
+plt.legend(loc='right',bbox_to_anchor=(1.6,0.5),shadow=True,ncol=2)
 plt.gcf().set_size_inches(10,5)
 plt.tight_layout()
 plt.show()
