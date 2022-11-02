@@ -6,4 +6,8 @@ dataset['order_month'] = dataset['order_date'].apply(lambda x: datetime.datetime
 dataset['gmv'] = dataset['item_price']*dataset['quantity']
 
 dataset_dki_q4 = dataset[(dataset['province']=='DKI Jakarta') & (dataset['order_month']>='2019-10')]
+gmv_per_city_dki_q4 = dataset_dki_q4.groupby('city')['gmv'].sum().reset_index()
+plt.figure(figsize=(6,6))
+plt.pie(gmv_per_city_dki_q4['gmv'], labels= gmv_per_city_dki_q4['city'],autopct='%1.2f%%')  # type: ignore
+plt.title('GMV Contribution Per City - DKI Jakarta in Q4 2019', loc='center',pad=30, fontsize=15, color='blue')
 print(dataset_dki_q4.head())
